@@ -28,6 +28,39 @@ def ping url
   end
 end
 
+class SwitchIp
+
+  def go vpn_name
+    turn_off vpn_name
+    sleep 3
+    turn_on vpn_name
+  end
+
+  def turn_on vpn_name
+    system "/usr/bin/env osascript <<-EOF
+        tell application \"System Events\"
+          tell current location of network preferences
+              set VPN to service \"#{vpn_name}\" -- your VPN name here
+              if exists VPN then connect VPN
+        end tell
+      end tell
+    EOF"
+
+  end
+
+  def turn_off vpn_name
+    system "/usr/bin/env osascript <<-EOF
+      tell application \"System Events\"
+        tell current location of network preferences
+              set VPN to service \"#{vpn_name}\" -- your VPN name here
+              if exists VPN then disconnect VPN
+        end tell
+    end tell
+   EOF"
+  end
+
+end
+
 ping "www.baidu.com"
 ping 'us1.vpncloud.me'
 ping 'us2.vpncloud.me'
@@ -37,3 +70,9 @@ ping 'jp2.vpncloud.me'
 ping 'jp3.vpncloud.me'
 ping 'sg1.vpncloud.me'
 ping 'uk1.vpncloud.me'
+
+puts "Which VPN would you like?"
+vpn_name = gets.strip
+puts "Connecting to #{vpn_name}......"
+vpn = SwitchIp.new
+vpn.go vpn_name
