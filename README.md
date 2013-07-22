@@ -1,7 +1,11 @@
+## Installation
+
 ```console
 bundle install
 ```
 
-```ruby
+## And Run
+
+```console
 ruby ping.rb
 ```
