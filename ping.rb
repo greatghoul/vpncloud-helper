@@ -62,14 +62,18 @@ class SwitchIp
 end
 
 ping "www.baidu.com"
-ping 'us1.vpncloud.me'
-ping 'us2.vpncloud.me'
-ping 'us3.vpncloud.me'
-ping 'jp1.vpncloud.me'
-ping 'jp2.vpncloud.me'
-ping 'jp3.vpncloud.me'
-ping 'sg1.vpncloud.me'
-ping 'uk1.vpncloud.me'
+ping 'us1.vpnplease.com'
+ping 'us2.vpnplease.com'
+ping 'us3.vpnplease.com'
+ping 'us4.vpnplease.com'
+ping 'us5.vpnplease.com'
+ping 'jp1.vpnplease.com'
+ping 'jp2.vpnplease.com'
+ping 'jp3.vpnplease.com'
+ping 'sg1.vpnplease.com'
+ping 'hk1.vpnplease.com'
+ping 'hk2.vpnplease.com'
+ping 'uk1.vpnplease.com'
 
 puts "Which VPN would you like?"
 vpn_name = gets.strip
